@@ -1,0 +1,1 @@
+Aplicação desenvolvida em Kotlin para android, visando conhecer o conceito de White label vistas nas aulas do [Douglas Motta](https://www.youtube.com/watch?v=rli1AUkRtMg&list=PLPs3nlHFeKToJQIMqGtRvFqi01UheVbOS&index=2)
