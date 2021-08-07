@@ -1,4 +1,4 @@
-package com.odougle.whitelabel
+package com.odougle.whitelabel.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.odougle.whitelabel.R
 import com.odougle.whitelabel.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
