@@ -1,0 +1,126 @@
+{
+  "project_info": {
+    "project_number": "849372824063",
+    "project_id": "white-label-9a957",
+    "storage_bucket": "white-label-9a957.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849372824063:android:fe0abd6243d3df709927ca",
+        "android_client_info": {
+          "package_name": "com.odougle.whitelabel.bike"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849372824063-jegjj5cph5iaotm9upbb292m1dgt3ih1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuzI-6erkjKAS4_SEQGTHE6lBInS3QudU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849372824063-jegjj5cph5iaotm9upbb292m1dgt3ih1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849372824063:android:9624755038b64a3e9927ca",
+        "android_client_info": {
+          "package_name": "com.odougle.whitelabel.bike.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849372824063-jegjj5cph5iaotm9upbb292m1dgt3ih1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuzI-6erkjKAS4_SEQGTHE6lBInS3QudU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849372824063-jegjj5cph5iaotm9upbb292m1dgt3ih1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849372824063:android:7cc7fb8bb3dd27cd9927ca",
+        "android_client_info": {
+          "package_name": "com.odougle.whitelabel.car"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849372824063-jegjj5cph5iaotm9upbb292m1dgt3ih1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuzI-6erkjKAS4_SEQGTHE6lBInS3QudU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849372824063-jegjj5cph5iaotm9upbb292m1dgt3ih1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849372824063:android:8d893dd81acf93e39927ca",
+        "android_client_info": {
+          "package_name": "com.odougle.whitelabel.car.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849372824063-jegjj5cph5iaotm9upbb292m1dgt3ih1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuzI-6erkjKAS4_SEQGTHE6lBInS3QudU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849372824063-jegjj5cph5iaotm9upbb292m1dgt3ih1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
