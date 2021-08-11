@@ -42,11 +42,15 @@ class FirebaseProductDataSource(
     }
 
     override suspend fun uploadProductImage(imageUri: Uri): String {
-        TODO("Not yet implemented")
+        return suspendCoroutine { continuation ->
+            
+        }
     }
 
     override suspend fun createProduct(product: Product): Product {
-        TODO("Not yet implemented")
+        return suspendCoroutine { continuation ->
+
+        }
     }
 
 }
