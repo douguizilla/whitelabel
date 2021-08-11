@@ -35,10 +35,9 @@ class FirebaseProductDataSource(
                 }
                 continuation.resumeWith(Result.success(products))
             }
-            productsReference.get().addOnFailureListener {
-
+            productsReference.get().addOnFailureListener { exception ->
+                continuation.resumeWith(Result.failure(exception))
             }
-
         }
 
     }
