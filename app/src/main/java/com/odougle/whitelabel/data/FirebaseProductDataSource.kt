@@ -5,6 +5,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.odougle.whitelabel.BuildConfig
 import com.odougle.whitelabel.domain.model.Product
+import com.odougle.whitelabel.util.COLLECTION_PRODUCTS
 import com.odougle.whitelabel.util.COLLECTION_ROOT
 
 class FirebaseProductDataSource(
@@ -22,7 +23,18 @@ class FirebaseProductDataSource(
     private val storeReference = firebaseStorage.reference
 
     override suspend fun getProducts(): List<Product> {
-        TODO("Not yet implemented")
+        val productsReference = documentReference.collection(COLLECTION_PRODUCTS)
+        productsReference.get().addOnSuccessListener { documents ->
+            val products = mutableListOf<Product>()
+            for (document in documents){
+                document.toObject(Product::class.java).run {
+                    products.add(this)
+                }
+            }
+        }
+        productsReference.get().addOnFailureListener {
+
+        }
     }
 
     override suspend fun uploadProductImage(imageUri: Uri): String {
