@@ -16,10 +16,6 @@ class FirebaseProductDataSource(
     firebaseStorage: FirebaseStorage
 ) : ProductDataSource {
 
-    //data/car/products/timestamp/productA
-    //data/bike/products/timestamp/productB
-    //COLLECTION/DOCUMENT/COLLECTION/DOCUMENT/OBJECT
-
     private val documentReference = firebaseFirestore
         .document("$COLLECTION_ROOT/${BuildConfig.FIREBASE_FLAVOR_COLLECTION}")
 
@@ -30,7 +26,7 @@ class FirebaseProductDataSource(
             val productsReference = documentReference.collection(COLLECTION_PRODUCTS)
             productsReference.get().addOnSuccessListener { documents ->
                 val products = mutableListOf<Product>()
-                for (document in documents){
+                for (document in documents) {
                     document.toObject(Product::class.java).run {
                         products.add(this)
                     }
@@ -56,7 +52,7 @@ class FirebaseProductDataSource(
                         val path = uri.toString()
                         continuation.resumeWith(Result.success(path))
                     }
-                }.addOnFailureListener{ exception ->
+                }.addOnFailureListener { exception ->
                     continuation.resumeWith(Result.failure(exception))
                 }
         }
@@ -64,7 +60,16 @@ class FirebaseProductDataSource(
 
     override suspend fun createProduct(product: Product): Product {
         return suspendCoroutine { continuation ->
-
+            documentReference
+                .collection(COLLECTION_PRODUCTS)
+                .document(System.currentTimeMillis().toString())
+                .set(product)
+                .addOnSuccessListener {
+                    continuation.resumeWith(Result.success(product))
+                }
+                .addOnFailureListener { exception ->
+                    continuation.resumeWith(Result.failure(exception))
+                }
         }
     }
 
