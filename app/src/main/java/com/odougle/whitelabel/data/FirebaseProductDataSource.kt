@@ -19,6 +19,8 @@ class FirebaseProductDataSource(
     private val documentReference = firebaseFirestore
         .document("$COLLECTION_ROOT/${BuildConfig.FIREBASE_FLAVOR_COLLECTION}")
 
+    private val storeReference = firebaseStorage.reference
+
     override suspend fun getProducts(): List<Product> {
         TODO("Not yet implemented")
     }
