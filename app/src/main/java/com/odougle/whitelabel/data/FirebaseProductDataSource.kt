@@ -49,6 +49,16 @@ class FirebaseProductDataSource(
             val childReference = storageReference.child(
                 "$STORAGE_IMAGES/${BuildConfig.FIREBASE_FLAVOR_COLLECTION}/$randomKey"
             )
+
+            childReference.putFile(imageUri)
+                .addOnSuccessListener { taskSnapshot ->
+                    taskSnapshot.storage.downloadUrl.addOnSuccessListener { uri ->
+                        val path = uri.toString()
+                        continuation.resumeWith(Result.success(path))
+                    }
+                }.addOnFailureListener{ exception ->
+                    continuation.resumeWith(Result.failure(exception))
+                }
         }
     }
 
