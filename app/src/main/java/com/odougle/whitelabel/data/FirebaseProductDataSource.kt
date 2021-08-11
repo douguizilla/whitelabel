@@ -7,6 +7,7 @@ import com.odougle.whitelabel.BuildConfig
 import com.odougle.whitelabel.domain.model.Product
 import com.odougle.whitelabel.util.COLLECTION_PRODUCTS
 import com.odougle.whitelabel.util.COLLECTION_ROOT
+import kotlin.coroutines.suspendCoroutine
 
 class FirebaseProductDataSource(
     firebaseFirestore: FirebaseFirestore,
@@ -23,18 +24,23 @@ class FirebaseProductDataSource(
     private val storeReference = firebaseStorage.reference
 
     override suspend fun getProducts(): List<Product> {
-        val productsReference = documentReference.collection(COLLECTION_PRODUCTS)
-        productsReference.get().addOnSuccessListener { documents ->
-            val products = mutableListOf<Product>()
-            for (document in documents){
-                document.toObject(Product::class.java).run {
-                    products.add(this)
+        return suspendCoroutine { continuation ->
+            val productsReference = documentReference.collection(COLLECTION_PRODUCTS)
+            productsReference.get().addOnSuccessListener { documents ->
+                val products = mutableListOf<Product>()
+                for (document in documents){
+                    document.toObject(Product::class.java).run {
+                        products.add(this)
+                    }
                 }
+                continuation.resumeWith(Result.success(products))
             }
-        }
-        productsReference.get().addOnFailureListener {
+            productsReference.get().addOnFailureListener {
+
+            }
 
         }
+
     }
 
     override suspend fun uploadProductImage(imageUri: Uri): String {
