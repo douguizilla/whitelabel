@@ -3,14 +3,21 @@ package com.odougle.whitelabel.data
 import android.net.Uri
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import com.odougle.whitelabel.BuildConfig
 import com.odougle.whitelabel.domain.model.Product
+import com.odougle.whitelabel.util.COLLECTION_ROOT
 
 class FirebaseProductDataSource(
     firebaseFirestore: FirebaseFirestore,
     firebaseStorage: FirebaseStorage
 ) : ProductDataSource {
 
+    //data/car/products/timestamp/productA
+    //data/bike/products/timestamp/productB
+    //COLLECTION/DOCUMENT/COLLECTION/DOCUMENT/OBJECT
 
+    private val documentReference = firebaseFirestore
+        .document("$COLLECTION_ROOT/${BuildConfig.FIREBASE_FLAVOR_COLLECTION}")
 
     override suspend fun getProducts(): List<Product> {
         TODO("Not yet implemented")
