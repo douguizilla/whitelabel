@@ -7,6 +7,8 @@ import com.odougle.whitelabel.BuildConfig
 import com.odougle.whitelabel.domain.model.Product
 import com.odougle.whitelabel.util.COLLECTION_PRODUCTS
 import com.odougle.whitelabel.util.COLLECTION_ROOT
+import com.odougle.whitelabel.util.STORAGE_IMAGES
+import java.util.*
 import kotlin.coroutines.suspendCoroutine
 
 class FirebaseProductDataSource(
@@ -21,7 +23,7 @@ class FirebaseProductDataSource(
     private val documentReference = firebaseFirestore
         .document("$COLLECTION_ROOT/${BuildConfig.FIREBASE_FLAVOR_COLLECTION}")
 
-    private val storeReference = firebaseStorage.reference
+    private val storageReference = firebaseStorage.reference
 
     override suspend fun getProducts(): List<Product> {
         return suspendCoroutine { continuation ->
@@ -43,7 +45,10 @@ class FirebaseProductDataSource(
 
     override suspend fun uploadProductImage(imageUri: Uri): String {
         return suspendCoroutine { continuation ->
-            
+            val randomKey = UUID.randomUUID()
+            val childReference = storageReference.child(
+                "$STORAGE_IMAGES/${BuildConfig.FIREBASE_FLAVOR_COLLECTION}/$randomKey"
+            )
         }
     }
 
