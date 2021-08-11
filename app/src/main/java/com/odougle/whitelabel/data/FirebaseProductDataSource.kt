@@ -39,7 +39,6 @@ class FirebaseProductDataSource(
                 continuation.resumeWith(Result.failure(exception))
             }
         }
-
     }
 
     override suspend fun uploadProductImage(imageUri: Uri): String {
