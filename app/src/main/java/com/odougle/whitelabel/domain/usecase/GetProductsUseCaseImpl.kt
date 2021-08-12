@@ -9,5 +9,4 @@ class GetProductsUseCaseImpl(
     override suspend fun invoke(): List<Product> {
         return productRepository.getProducts()
     }
-
 }
