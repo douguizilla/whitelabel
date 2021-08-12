@@ -34,6 +34,12 @@ class AddProductFragment : BottomSheetDialogFragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setListeners()
+    }
+
     private fun setListeners(){
         binding.imageProduct.setOnClickListener {
             chooseImage()
