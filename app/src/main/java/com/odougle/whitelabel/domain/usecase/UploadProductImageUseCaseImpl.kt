@@ -1,9 +1,13 @@
 package com.odougle.whitelabel.domain.usecase
 
 import android.net.Uri
+import com.odougle.whitelabel.data.ProductRepository
 
-class UploadProductImageUseCaseImpl : UploadProductImageUseCase {
+class UploadProductImageUseCaseImpl(
+    private val productRepository: ProductRepository
+) : UploadProductImageUseCase {
+
     override suspend fun invoke(imageUri: Uri): String {
-        TODO("Not yet implemented")
+        return productRepository.uploadProductImage(imageUri)
     }
 }
