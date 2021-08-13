@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.odougle.whitelabel.R
 import com.odougle.whitelabel.domain.usecase.CreateProductUseCase
 import com.odougle.whitelabel.util.fromCurrency
 import kotlinx.coroutines.launch
@@ -40,5 +41,12 @@ class AddProductViewModel(
                 Log.d("CreateProduct", e.toString())
             }
         }
+    }
+
+    private fun getErrorStringResIdIfEmpty(value: String): Int? {
+        return if(value.isEmpty()){
+            isFormValid = false
+            R.string.add_product_field_error
+        }else null
     }
 }
