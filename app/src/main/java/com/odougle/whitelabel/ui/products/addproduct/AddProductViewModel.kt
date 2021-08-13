@@ -9,14 +9,15 @@ import androidx.lifecycle.viewModelScope
 import com.odougle.whitelabel.R
 import com.odougle.whitelabel.domain.usecase.CreateProductUseCase
 import com.odougle.whitelabel.util.fromCurrency
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 import kotlin.Exception
 
-class AddProductViewModel(
+@HiltViewModel
+class AddProductViewModel @Inject constructor(
     private val createProductUseCase: CreateProductUseCase
 ) : ViewModel() {
-
-    private var isFormValid = false
 
     private val _descriptionFieldErrorResId = MutableLiveData<Int?>()
     val descriptionFieldErrorResId: LiveData<Int?> = _descriptionFieldErrorResId
@@ -26,6 +27,8 @@ class AddProductViewModel(
 
     private val _imageErrorResId = MutableLiveData<Int>()
     val imageErrorResId: LiveData<Int> = _imageErrorResId
+
+    private var isFormValid = false
 
 
     //para poder usar funcoes suspensas dentro do escopo usei viewModelScope.launch
