@@ -10,5 +10,7 @@ class AddProductViewModel(
     private val createProductUseCase: CreateProductUseCase
 ) : ViewModel() {
 
+    fun createProduct(description: String, price: String, imageUri: Uri) = viewModelScope.launch {
 
+    }
 }
