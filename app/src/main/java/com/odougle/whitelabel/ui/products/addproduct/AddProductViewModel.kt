@@ -29,7 +29,7 @@ class AddProductViewModel(
 
 
     //para poder usar funcoes suspensas dentro do escopo usei viewModelScope.launch
-    fun createProduct(description: String, price: String, imageUri: Uri) = viewModelScope.launch {
+    fun createProduct(description: String, price: String, imageUri: Uri?) = viewModelScope.launch {
         isFormValid = true
 
         //validation
@@ -39,7 +39,7 @@ class AddProductViewModel(
 
         if (isFormValid){
             try {
-                val product = createProductUseCase(description, price.fromCurrency(), imageUri)
+                val product = createProductUseCase(description, price.fromCurrency(), imageUri!!)
             }catch (e: Exception){
                 Log.d("CreateProduct", e.toString())
             }
