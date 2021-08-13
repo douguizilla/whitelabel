@@ -9,9 +9,10 @@ import com.odougle.whitelabel.util.COLLECTION_PRODUCTS
 import com.odougle.whitelabel.util.COLLECTION_ROOT
 import com.odougle.whitelabel.util.STORAGE_IMAGES
 import java.util.*
+import javax.inject.Inject
 import kotlin.coroutines.suspendCoroutine
 
-class FirebaseProductDataSource(
+class FirebaseProductDataSource @Inject constructor(
     firebaseFirestore: FirebaseFirestore,
     firebaseStorage: FirebaseStorage
 ) : ProductDataSource {
