@@ -2,8 +2,9 @@ package com.odougle.whitelabel.data
 
 import android.net.Uri
 import com.odougle.whitelabel.domain.model.Product
+import javax.inject.Inject
 
-class ProductRepository(
+class ProductRepository @Inject constructor(
     private val dataSource: ProductDataSource
 ) {
     suspend fun getProducts(): List<Product> = dataSource.getProducts()
