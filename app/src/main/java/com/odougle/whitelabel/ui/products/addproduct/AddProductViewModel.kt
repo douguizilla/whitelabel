@@ -49,4 +49,11 @@ class AddProductViewModel(
             R.string.add_product_field_error
         }else null
     }
+
+    private fun getDrawableResIdIfNull(value: Uri?): Int{
+        return if(value == null){
+            isFormValid = false
+            R.drawable.background_product_image_error
+        }else R.drawable.background_product_image
+    }
 }
