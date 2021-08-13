@@ -32,7 +32,10 @@ class AddProductViewModel(
     fun createProduct(description: String, price: String, imageUri: Uri) = viewModelScope.launch {
         isFormValid = true
 
-
+        //validation
+        _imageErrorResId.value = getDrawableResIdIfNull(imageUri)
+        _descriptionFieldErrorResId.value = getErrorStringResIdIfEmpty(description)
+        _priceFieldErrorResId.value = getErrorStringResIdIfEmpty(price)
 
         if (isFormValid){
             try {
