@@ -24,8 +24,8 @@ class AddProductViewModel(
     private val _priceFieldErrorResId = MutableLiveData<Int?>()
     val priceFieldErrorResId: LiveData<Int?> = _priceFieldErrorResId
 
-    private val _imageErrorResId = MutableLiveData<Int?>()
-    val imageErrorResId: LiveData<Int?> = _imageErrorResId
+    private val _imageErrorResId = MutableLiveData<Int>()
+    val imageErrorResId: LiveData<Int> = _imageErrorResId
 
 
     //para poder usar funcoes suspensas dentro do escopo usei viewModelScope.launch
