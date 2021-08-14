@@ -1,4 +1,4 @@
-package com.odougle.whitelabel.ui.products.addproduct
+package com.odougle.whitelabel.ui.addproduct
 
 import android.net.Uri
 import android.util.Log
