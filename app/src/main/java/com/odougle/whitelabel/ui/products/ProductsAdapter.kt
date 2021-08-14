@@ -3,13 +3,22 @@ package com.odougle.whitelabel.ui.products
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.odougle.whitelabel.databinding.ItemProductBinding
 import com.odougle.whitelabel.domain.model.Product
 import com.odougle.whitelabel.util.toCurrency
 
-class ProductsAdapter {
+class ProductsAdapter : ListAdapter<Product, ProductsAdapter.ProductsViewHolder>(DIFF_CALLBACK) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
+        return ProductsViewHolder.create(parent)
+    }
+
+    override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
 
     class ProductsViewHolder(
         private val itemBinding: ItemProductBinding
@@ -54,4 +63,6 @@ class ProductsAdapter {
             }
         }
     }
+
+
 }
