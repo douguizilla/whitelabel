@@ -72,6 +72,12 @@ class ProductsFragment : Fragment() {
                 }
             }
             navBackStackEntry.lifecycle.addObserver(observer)
+
+            viewLifecycleOwner.lifecycle.addObserver(LifecycleEventObserver{_, event ->
+                if(event == Lifecycle.Event.ON_DESTROY){
+                    navBackStackEntry.lifecycle.removeObserver(observer)
+                }
+            })
         }
     }
 
