@@ -1,5 +1,7 @@
 package com.odougle.whitelabel.config
 
-class ConfigImpl : Config {
+import javax.inject.Inject
+
+class ConfigImpl @Inject constructor() : Config {
     override val addButtonVisibility: Boolean = false
 }
