@@ -67,6 +67,8 @@ class ProductsFragment : Fragment() {
                         add(product)
                     }
                     productsAdapter.submitList(newList)
+                    binding.recyclerProducts.smoothScrollToPosition(newList.size-1)
+                    savedStateHandle.remove<Product>(PRODUCT_KEY)
                 }
             }
         }
