@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.odougle.whitelabel.R
 import com.odougle.whitelabel.databinding.FragmentProductsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,6 +33,7 @@ class ProductsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setRecyclerView()
+        setListeners()
         observeVMEvents()
         viewModel.getProducts()
     }
@@ -40,6 +43,10 @@ class ProductsFragment : Fragment() {
             setHasFixedSize(true)
             adapter = productsAdapter
         }
+    }
+
+    private fun setListeners(){
+        findNavController().navigate(R.id.action_productsFragment_to_addProductFragment)
     }
 
     private fun observeVMEvents() {
