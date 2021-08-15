@@ -52,6 +52,7 @@ android {
             dimension 'product'
             applicationIdSuffix '.car'
             manifestPlaceholders.appName = "Car"
+
             buildConfigField "String", "FIREBASE_FLAVOR_COLLECTION", "\"car\""
         }
         client{
