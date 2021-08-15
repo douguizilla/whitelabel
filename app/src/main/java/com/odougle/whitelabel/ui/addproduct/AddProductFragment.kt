@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputLayout
 import com.odougle.whitelabel.databinding.AddProductFragmentBinding
 import com.odougle.whitelabel.util.CurrencyTextWatcher
+import com.odougle.whitelabel.util.PRODUCT_KEY
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -54,6 +56,15 @@ class AddProductFragment : BottomSheetDialogFragment() {
 
         viewModel.priceFieldErrorResId.observe(viewLifecycleOwner){ stringResId ->
             binding.inputLayoutPrice.setError(stringResId)
+        }
+
+        viewModel.productCreated.observe(viewLifecycleOwner){ product ->
+            findNavController().run {
+                //salva o produto no estado da tela anterior
+                previousBackStackEntry?.savedStateHandle?.set(PRODUCT_KEY, product)
+                //fecha a tela e volta pra anterior
+                popBackStack()
+            }
         }
     }
 
