@@ -66,6 +66,7 @@ class ProductsFragment : Fragment() {
                     val newList = oldList.toMutableList().apply {
                         add(product)
                     }
+                    productsAdapter.submitList(newList)
                 }
             }
         }
