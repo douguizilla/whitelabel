@@ -38,6 +38,7 @@ class ProductsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setRecyclerView()
         setListeners()
+        observeNavBackStack()
         observeVMEvents()
         viewModel.getProducts()
     }
