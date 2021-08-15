@@ -46,7 +46,10 @@ class ProductsFragment : Fragment() {
     }
 
     private fun setListeners(){
-        findNavController().navigate(R.id.action_productsFragment_to_addProductFragment)
+        binding.fabAdd.setOnClickListener {
+
+            findNavController().navigate(R.id.action_productsFragment_to_addProductFragment)
+        }
     }
 
     private fun observeVMEvents() {
