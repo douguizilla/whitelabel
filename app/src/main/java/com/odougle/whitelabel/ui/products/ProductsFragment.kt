@@ -71,6 +71,7 @@ class ProductsFragment : Fragment() {
                     savedStateHandle.remove<Product>(PRODUCT_KEY)
                 }
             }
+            navBackStackEntry.lifecycle.addObserver(observer)
         }
     }
 
